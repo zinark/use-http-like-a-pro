@@ -1,158 +1,228 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Profesyoneller Gibi HTTP İstekleri Gönderin</title>
-<style>
-  body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: #f7f7f7;
-  }
-  .book {
-    background: white;
-    padding: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-  }
-  .title {
-    text-align: center;
-  }
-  .chapter {
-    margin-top: 20px;
-  }
-  .chapter-title {
-    color: #333;
-    font-size: 18px;
-    font-weight: bold;
-  }
-  .chapter-content {
-    margin-top: 10px;
-  }
-  pre {
-    background-color: #eee;
-    padding: 10px;
-    border-radius: 5px;
-    font-family: 'Courier New', Courier, monospace;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profesyoneller Gibi HTTP İstekleri Gönderin</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f7f7f7;
+        }
+
+        .book {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        .chapter {
+            margin-top: 20px;
+        }
+
+        .chapter-title {
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .chapter-content {
+            margin-top: 10px;
+        }
+
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="book">
-  <div class="title">
-    <h1>PROFESYONELLER GİBİ</h1>
-    <h2>HTTP İSTEKLERİ GÖNDERİN</h2>
-    <p>sadece 2 saatte -- bilmeniz gereken her şey</p>
-  </div>
+    <div class="book">
+        <div class="title">
+            <h1>PROFESYONELLER GİBİ</h1>
+            <h2>HTTP İSTEKLERİ GÖNDERİN</h2>
+            <p>sadece 2 saatte -- bilmeniz gereken her şey</p>
+        </div>
 
-  <div class="chapter">
-    <div class="chapter-title">1. Bölüm: cURL ile GET İsteği</div>
-    <div class="chapter-content">
-      <p>cURL ile GET isteği yapmak için aşağıdaki komutu kullanın:</p>
-      <pre>curl http://ornek.com/api/veri</pre>
+        <div class="chapter">
+            <div class="chapter-title">1. Bölüm: cURL ile GET İsteği</div>
+            <div class="chapter-content">
+                <p>cURL ile GET isteği yapmak için aşağıdaki komutu kullanın:</p>
+                <pre>curl http://ornek.com/api/veri</pre>
+            </div>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">2. Bölüm: cURL ile POST İsteği</div>
+            <div class="chapter-content">
+                <p>cURL ile POST isteği yapmak için aşağıdaki komutu kullanın:</p>
+                <pre>curl -X POST -d "param1=deger1&param2=deger2" http://ornek.com/api/gonder</pre>
+            </div>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">3. Bölüm: Authorization Header Kullanımı</div>
+            <div class="chapter-content">
+                <p>HTTP isteğine Authorization header eklemek için aşağıdaki komutu kullanabilirsiniz:</p>
+                <pre>curl -H "Authorization: Bearer SENIN_TOKENIN" http://ornek.com/api/gizli</pre>
+            </div>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">4. Bölüm: İstekleri Nasıl Kataloglarız</div>
+            <div class="chapter-content">
+                <p>HTTP isteklerini kataloglamak, API ile çalışırken düzeni sağlamak için önemlidir. Her isteğin
+                    amacını, gönderilen verileri ve beklenen yanıtları açıkça belgelemek gerekir. Aşağıda, istekleri
+                    kataloglama yöntemlerinden bahsedeceğiz:</p>
+
+                <ul>
+                    <li><strong>İstek Metodları:</strong> GET, POST, PUT, DELETE gibi farklı HTTP metodlarını ve
+                        bunların ne zaman kullanılması gerektiğini belirtin.</li>
+                    <li><strong>Endpoint Yapısı:</strong> Her bir API endpoint'i için bir standart yapınız olsun.
+                        Örneğin, '/users' kullanıcı listesi, '/users/{id}' belirli bir kullanıcıya erişim için
+                        kullanılabilir.</li>
+                    <li><strong>Parametreler ve Gövde Verisi:</strong> İstek yaparken hangi parametrelerin ve gövde
+                        verilerinin gerekli olduğunu belirtin.</li>
+                    <li><strong>Yanıt ve Durum Kodları:</strong> API'nizin döndürebileceği yanıt tiplerini ve HTTP durum
+                        kodlarını belirtin.</li>
+                    <li><strong>Örnekler:</strong> Gerçek istek ve yanıtların örneklerini ekleyerek kullanıcıların ne
+                        bekleyeceğini görsel olarak gösterin.</li>
+                    <li><strong>Doğrulama ve Hata Kontrolü:</strong> Gönderilen verilerin doğruluğunu kontrol etme ve
+                        olası hataları ele almanın yollarını açıklayın.</li>
+                </ul>
+
+                <p>İyi bir dokümantasyon ve açık kataloglama, API'nizin kullanımını kolaylaştırır ve hataları azaltır.
+                </p>
+            </div>
+        </div>
+
+
+
+
+        <div class="chapter">
+            <div class="chapter-title">5. Bölüm: HTTP Hata Kodları</div>
+            <div class="chapter-content">
+                <p>HTTP hata kodları, sunucunun gelen isteklere nasıl yanıt verdiğini tanımlar. Aşağıda yaygın HTTP hata
+                    kodları ve anlamları listelenmiştir:</p>
+
+                <ul>
+                    <li><strong>200 OK:</strong> İstek başarılı oldu ve yanıt istenilen içeriği içeriyor.</li>
+                    <li><strong>400 Bad Request:</strong> İstek hatalı veya yanlış yapılandırılmış ve sunucu tarafından
+                        işlenemedi.</li>
+                    <li><strong>401 Unauthorized:</strong> İstek yetkilendirme gerektiriyor ve ya yetkilendirme
+                        başarısız oldu ya da sağlanmadı.</li>
+                    <li><strong>403 Forbidden:</strong> Sunucu isteği anladı ancak onu yerine getirmeyi reddediyor.</li>
+                    <li><strong>500 Internal Server Error:</strong> Sunucu beklenmeyen bir durumla karşılaştı ve isteği
+                        yerine getiremedi.</li>
+                    <li><strong>503 Service Unavailable:</strong> Sunucu geçici bir aşırı yük ya da bakım nedeniyle
+                        isteği işleme alamıyor.</li>
+                    <li><strong>520 Unknown Error:</strong> Bu genellikle Cloudflare tarafından kullanılan özel bir hata
+                        kodudur ve sunucunun bir beklenmedik durumla karşılaştığını gösterir.</li>
+                </ul>
+
+                <p>Bu hata kodlarını anlamak ve uygun şekilde ele almak, kullanıcı deneyimini büyük ölçüde
+                    iyileştirebilir.</p>
+            </div>
+        </div>
+
+
+
+        <div class="chapter">
+            <div class="chapter-title">6. Bölüm: İsteklerde Zaman Aşımı ve Yeniden Deneme Stratejileri</div>
+            <div class="chapter-content">
+                <p>Uygulama yaparken ağ isteklerinin zamanında ve güvenilir şekilde tamamlanması önemlidir. Ağ hataları
+                    ve yavaş yanıtlar gibi durumlarda, istekleri yeniden denemek ve zaman aşımı sürelerini uygun şekilde
+                    ayarlamak gerekir. İşte bazı yönergeler:</p>
+
+                <h3>Timeout Süresi</h3>
+                <p>Bir istek için belirlenen zaman aşımı süresi (timeout), sunucunun yanıt vermesi için beklenen
+                    maksimum süredir. Bu süre aşıldığında, istek başarısız sayılır. Örnek cURL kullanımı:</p>
+                <pre>curl -m 10 http://ornek.com/api/veri</pre>
+                <p>Burada '-m 10', cURL'un 10 saniye bekleyeceğini ve ardından zaman aşımına uğrayacağını belirtir.</p>
+
+                <h3>Yeniden Deneme Sayısı</h3>
+                <p>Bir isteğin kaç defa yeniden denenmesi gerektiği, isteğin önemine ve beklenen yanıt süresine göre
+                    değişebilir. Örnek cURL kullanımı:</p>
+                <pre>curl --retry 5 http://ornek.com/api/veri</pre>
+                <p>Burada '--retry 5', cURL'un isteği 5 kez yeniden deneyeceğini gösterir.</p>
+
+                <h3>Yeniden Deneme Kriterleri</h3>
+                <p>Yeniden deneme kararı alırken aşağıdaki durumlar göz önünde bulundurulmalıdır:</p>
+                <ul>
+                    <li><strong>Geçici Hatalar:</strong> 503 Service Unavailable gibi geçici sunucu hatalarında.</li>
+                    <li><strong>Ağ Hataları:</strong> Zaman aşımı veya ağ kesintisi gibi durumlarda.</li>
+                    <li><strong>Başarısızlık Oranları:</strong> İsteklerin başarısızlık oranı yüksekse, daha az yeniden
+                        deneme yapılmalıdır.</li>
+                </ul>
+
+                <h3>Örnek cURL Yeniden Deneme Kullanımı</h3>
+                <p>Yeniden deneme politikalarını cURL ile birleştirerek, belirli hatalar ve zaman aşımı durumlarında
+                    otomatik yeniden deneme sağlayabilirsiniz:</p>
+                <pre>curl --retry 5 --retry-delay 3 --retry-max-time 120 --retry-connrefused http://ornek.com/api/veri</pre>
+                <p>Bu komut, bağlantı reddedilirse bile, 3 saniyelik gecikmelerle toplamda 120 saniye içinde maksimum 5
+                    kez yeniden deneme yapılmasını sağlar.</p>
+            </div>
+        </div>
+
+
+        <div class="chapter">
+            <div class="chapter-title">7. Bölüm: Veri Önbelleğe Alma Stratejileri</div>
+            <div class="chapter-content">
+                <p>Önbelleğe alma, sık kullanılan verileri geçici olarak saklayarak sistem performansını iyileştiren bir
+                    yöntemdir. Doğru verileri önbelleğe almak uygulamanızın hızını ve verimliliğini artırabilir. Ancak,
+                    tüm veriler önbelleğe alınmamalıdır.</p>
+
+                <h3>Önbelleğe Alınabilir Veriler</h3>
+                <ul>
+                    <li><strong>Statik İçerik:</strong> CSS dosyaları, JavaScript kitaplıkları ve medya dosyaları gibi
+                        değişmeyen içerikler.</li>
+                    <li><strong>Yavaş Değişen Dinamik İçerik:</strong> Kullanıcı profilleri veya katalog gibi nadiren
+                        güncellenen veriler.</li>
+                    <li><strong>API Yanıtları:</strong> Sıkça erişilen ancak nadiren değişen API sonuçları.</li>
+                </ul>
+
+                <h3>Önbelleğe Almamak Gereken Durumlar</h3>
+                <ul>
+                    <li><strong>Güvenlik Tokenleri:</strong> Oturum tokenleri gibi güvenlik açısından hassas ve kişiye
+                        özel olan bilgiler önbelleğe alınmamalıdır.</li>
+                    <li><strong>Çok Sık Değişen Veriler:</strong> Gerçek zamanlı borsa verileri veya sosyal medya
+                        güncellemeleri gibi sürekli güncellenen bilgiler.</li>
+                    <li><strong>Hassas Bilgiler:</strong> Kişisel veriler veya işlem geçmişi gibi hassas bilgilerin
+                        önbelleğe alınması güvenlik riskleri taşır.</li>
+                </ul>
+
+                <p>Önbelleğe almanın temel amacı, tekrar eden veri taleplerinde performansı artırmak ve sunucu yükünü
+                    azaltmaktır. Ancak, önbelleğe alınan verilerin güncelliğini korumak ve güvenlik standartlarına uymak
+                    da önemlidir.</p>
+
+                <h3>Önbelleğe Alma İle İlgili İpuçları</h3>
+                <p>Önbelleğe alma süresi, 'Cache-Control' HTTP başlığı aracılığıyla kontrol edilir. Statik içerik için
+                    uzun süreli, dinamik içerik için ise daha kısa süreli önbelleğe alma stratejileri uygulanabilir.</p>
+                <pre>Cache-Control: public, max-age=31536000</pre>
+                <p>Bu örnek, tarayıcıya ve ara sunuculara (proxy) belirtilen kaynağın 1 yıl boyunca önbelleğe
+                    alınabileceğini bildirir.</p>
+            </div>
+        </div>
+
+
     </div>
-  </div>
-
-  <div class="chapter">
-    <div class="chapter-title">2. Bölüm: cURL ile POST İsteği</div>
-    <div class="chapter-content">
-      <p>cURL ile POST isteği yapmak için aşağıdaki komutu kullanın:</p>
-      <pre>curl -X POST -d "param1=deger1&param2=deger2" http://ornek.com/api/gonder</pre>
-    </div>
-  </div>
-
-  <div class="chapter">
-    <div class="chapter-title">3. Bölüm: Authorization Header Kullanımı</div>
-    <div class="chapter-content">
-      <p>HTTP isteğine Authorization header eklemek için aşağıdaki komutu kullanabilirsiniz:</p>
-      <pre>curl -H "Authorization: Bearer SENIN_TOKENIN" http://ornek.com/api/gizli</pre>
-    </div>
-  </div>
-
-  <div class="chapter">
-  <div class="chapter-title">4. Bölüm: İstekleri Nasıl Kataloglarız</div>
-  <div class="chapter-content">
-    <p>HTTP isteklerini kataloglamak, API ile çalışırken düzeni sağlamak için önemlidir. Her isteğin amacını, gönderilen verileri ve beklenen yanıtları açıkça belgelemek gerekir. Aşağıda, istekleri kataloglama yöntemlerinden bahsedeceğiz:</p>
-    
-    <ul>
-      <li><strong>İstek Metodları:</strong> GET, POST, PUT, DELETE gibi farklı HTTP metodlarını ve bunların ne zaman kullanılması gerektiğini belirtin.</li>
-      <li><strong>Endpoint Yapısı:</strong> Her bir API endpoint'i için bir standart yapınız olsun. Örneğin, '/users' kullanıcı listesi, '/users/{id}' belirli bir kullanıcıya erişim için kullanılabilir.</li>
-      <li><strong>Parametreler ve Gövde Verisi:</strong> İstek yaparken hangi parametrelerin ve gövde verilerinin gerekli olduğunu belirtin.</li>
-      <li><strong>Yanıt ve Durum Kodları:</strong> API'nizin döndürebileceği yanıt tiplerini ve HTTP durum kodlarını belirtin.</li>
-      <li><strong>Örnekler:</strong> Gerçek istek ve yanıtların örneklerini ekleyerek kullanıcıların ne bekleyeceğini görsel olarak gösterin.</li>
-      <li><strong>Doğrulama ve Hata Kontrolü:</strong> Gönderilen verilerin doğruluğunu kontrol etme ve olası hataları ele almanın yollarını açıklayın.</li>
-    </ul>
-
-    <p>İyi bir dokümantasyon ve açık kataloglama, API'nizin kullanımını kolaylaştırır ve hataları azaltır.</p>
-  </div>
-</div>
-
-
-
-
-  <div class="chapter">
-  <div class="chapter-title">5. Bölüm: HTTP Hata Kodları</div>
-  <div class="chapter-content">
-    <p>HTTP hata kodları, sunucunun gelen isteklere nasıl yanıt verdiğini tanımlar. Aşağıda yaygın HTTP hata kodları ve anlamları listelenmiştir:</p>
-    
-    <ul>
-      <li><strong>200 OK:</strong> İstek başarılı oldu ve yanıt istenilen içeriği içeriyor.</li>
-      <li><strong>400 Bad Request:</strong> İstek hatalı veya yanlış yapılandırılmış ve sunucu tarafından işlenemedi.</li>
-      <li><strong>401 Unauthorized:</strong> İstek yetkilendirme gerektiriyor ve ya yetkilendirme başarısız oldu ya da sağlanmadı.</li>
-      <li><strong>403 Forbidden:</strong> Sunucu isteği anladı ancak onu yerine getirmeyi reddediyor.</li>
-      <li><strong>500 Internal Server Error:</strong> Sunucu beklenmeyen bir durumla karşılaştı ve isteği yerine getiremedi.</li>
-      <li><strong>503 Service Unavailable:</strong> Sunucu geçici bir aşırı yük ya da bakım nedeniyle isteği işleme alamıyor.</li>
-      <li><strong>520 Unknown Error:</strong> Bu genellikle Cloudflare tarafından kullanılan özel bir hata kodudur ve sunucunun bir beklenmedik durumla karşılaştığını gösterir.</li>
-    </ul>
-
-    <p>Bu hata kodlarını anlamak ve uygun şekilde ele almak, kullanıcı deneyimini büyük ölçüde iyileştirebilir.</p>
-  </div>
-</div>
-
-
-
-<div class="chapter">
-  <div class="chapter-title">6. Bölüm: İsteklerde Zaman Aşımı ve Yeniden Deneme Stratejileri</div>
-  <div class="chapter-content">
-    <p>Uygulama yaparken ağ isteklerinin zamanında ve güvenilir şekilde tamamlanması önemlidir. Ağ hataları ve yavaş yanıtlar gibi durumlarda, istekleri yeniden denemek ve zaman aşımı sürelerini uygun şekilde ayarlamak gerekir. İşte bazı yönergeler:</p>
-    
-    <h3>Timeout Süresi</h3>
-    <p>Bir istek için belirlenen zaman aşımı süresi (timeout), sunucunun yanıt vermesi için beklenen maksimum süredir. Bu süre aşıldığında, istek başarısız sayılır. Örnek cURL kullanımı:</p>
-    <pre>curl -m 10 http://ornek.com/api/veri</pre>
-    <p>Burada '-m 10', cURL'un 10 saniye bekleyeceğini ve ardından zaman aşımına uğrayacağını belirtir.</p>
-    
-    <h3>Yeniden Deneme Sayısı</h3>
-    <p>Bir isteğin kaç defa yeniden denenmesi gerektiği, isteğin önemine ve beklenen yanıt süresine göre değişebilir. Örnek cURL kullanımı:</p>
-    <pre>curl --retry 5 http://ornek.com/api/veri</pre>
-    <p>Burada '--retry 5', cURL'un isteği 5 kez yeniden deneyeceğini gösterir.</p>
-    
-    <h3>Yeniden Deneme Kriterleri</h3>
-    <p>Yeniden deneme kararı alırken aşağıdaki durumlar göz önünde bulundurulmalıdır:</p>
-    <ul>
-      <li><strong>Geçici Hatalar:</strong> 503 Service Unavailable gibi geçici sunucu hatalarında.</li>
-      <li><strong>Ağ Hataları:</strong> Zaman aşımı veya ağ kesintisi gibi durumlarda.</li>
-      <li><strong>Başarısızlık Oranları:</strong> İsteklerin başarısızlık oranı yüksekse, daha az yeniden deneme yapılmalıdır.</li>
-    </ul>
-    
-    <h3>Örnek cURL Yeniden Deneme Kullanımı</h3>
-    <p>Yeniden deneme politikalarını cURL ile birleştirerek, belirli hatalar ve zaman aşımı durumlarında otomatik yeniden deneme sağlayabilirsiniz:</p>
-    <pre>curl --retry 5 --retry-delay 3 --retry-max-time 120 --retry-connrefused http://ornek.com/api/veri</pre>
-    <p>Bu komut, bağlantı reddedilirse bile, 3 saniyelik gecikmelerle toplamda 120 saniye içinde maksimum 5 kez yeniden deneme yapılmasını sağlar.</p>
-  </div>
-</div>
-
-
-
-  
-</div>
 
 </body>
+
 </html>
