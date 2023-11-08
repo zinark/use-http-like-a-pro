@@ -322,6 +322,46 @@
             </div>
         </div>
 
+        <div class="chapter">
+            <div class="chapter-title">10. Bölüm: Swagger ve OpenAPI ile API Dokümantasyonu</div>
+            <div class="chapter-content">
+                <p>Swagger ve OpenAPI, API'lerinizi dokümante etmenin modern ve etkili yollarını sunar. Bu araçlar,
+                    API'nizin potansiyelini maksimuma çıkarmak ve geliştiricilere entegrasyon için net bir rehberlik
+                    sağlamak adına kullanılabilir.</p>
+
+                <h3>Swagger / OpenAPI Nedir?</h3>
+                <p>Swagger (OpenAPI), REST API'ler için bir açıklama formatıdır. API'nizin yeteneklerini ve kullanımını
+                    açıklayan bir dökümantasyon oluşturmanızı sağlar. Swagger UI ise, bu dökümantasyonu interaktif bir
+                    web sayfası haline getirir ve kullanıcıların API'yi test etmelerine olanak tanır.</p>
+
+                <h3>Swagger Dökümantasyonundan Nasıl Yararlanılır?</h3>
+                <p>Swagger dökümantasyonu, API'nizin özelliklerini keşfetmek ve test etmek için kullanışlı bir araçtır.
+                    Bir API'nin Swagger dökümantasyonu, genellikle bir URL üzerinden erişilebilir. Örneğin:</p>
+                <pre>http://ornek.com/api/swagger-ui.html</pre>
+                <p>Bu URL'de, API'nizin tüm endpoint'leri, mümkün parametreler ve hata kodları hakkında bilgileri
+                    bulabilirsiniz. Ayrıca, doğrudan web arayüzü üzerinden API istekleri göndererek yanıtları
+                    görebilirsiniz.</p>
+
+                <h3>Swagger Dökümantasyonunu Clientlara Entegre Etme</h3>
+                <p>Swagger dökümantasyonu, genellikle bir JSON veya YAML dosyası olarak sunulur. Bu dosya, Postman,
+                    JetBrains Rider veya diğer API client programlarına kolaylıkla import edilebilir. Böylece API'yi
+                    daha rahat test etme ve entegre etme imkanı bulabilirsiniz.</p>
+                <p>Örneğin, Postman ile bir Swagger dosyasını içe aktarmak için:</p>
+                <ol>
+                    <li>Postman uygulamasını açın.</li>
+                    <li>'Import' düğmesine tıklayın.</li>
+                    <li>Swagger dosyasının URL'sini yapıştırın veya dosyayı doğrudan yükleyin.</li>
+                    <li>'Import' seçeneğine tıklayarak API'nizi Postman koleksiyonuna ekleyin.</li>
+                </ol>
+                <p>JetBrains Rider gibi bir IDE kullanıyorsanız, genellikle 'Tools' > 'HTTP Client' > 'Test RESTful Web
+                    Service' seçeneğinden Swagger dökümantasyonunu yükleyebilir ve API isteklerinizi doğrudan IDE
+                    üzerinden gönderebilirsiniz.</p>
+
+                <p>Swagger / OpenAPI'nin gücü, API'lerinizi hızlı ve doğru bir şekilde kullanılabilir hale
+                    getirmesindedir. Geliştirme süreçlerini hızlandırmanın ve hata riskini azaltmanın yanı sıra, dış
+                    hizmetlerle entegrasyonu kolaylaştırır ve API'nizin kullanımını genişletir.</p>
+            </div>
+        </div>
 
     </div>
 
