@@ -220,6 +220,58 @@
             </div>
         </div>
 
+        <div class="chapter">
+  <div class="chapter-title">8. Bölüm: HTTP Yanıtlarının Ayrıştırılması</div>
+  <div class="chapter-content">
+    <p>API'den alınan HTTP yanıtlarının doğru şekilde ayrıştırılması, hizmetin sağlıklı bir şekilde kullanılabilmesi için kritik önem taşır. Durum kodlarına göre yanıtların nasıl işleneceğini aşağıda bulabilirsiniz:</p>
+    
+    <h3>Başarılı Yanıtlar (200 Serisi)</h3>
+    <p>Başarılı yanıtlar genellikle JSON formatındadır. Yanıtın bu formatı doğrulayın ve uygun bir JSON parser kullanarak verileri işleyin:</p>
+    <pre>
+      // cURL komutu ile API'den veri talebi
+      curl -X GET "http://ornek.com/api/veri" -H "accept: application/json"
+      // Yanıtın başarılı olduğu durumda JSON ayrıştırma
+      if (response.statusCode === 200) {
+        let data = JSON.parse(response.body);
+        // İşlem yap...
+      }
+    </pre>
+    
+    <h3>Kullanıcı Hataları (400 Serisi)</h3>
+    <p>400'lü hatalar genellikle kullanıcı kaynaklı sorunları ifade eder ve hata detayları çoğu zaman JSON formatında sağlanır. Bu durumda, hata mesajını ayrıştırarak kullanıcıya net bir geri bildirim yapabilirsiniz:</p>
+    <pre>
+      // Kullanıcı kaynaklı hata durumunda JSON ayrıştırma
+      if (response.statusCode >= 400 && response.statusCode < 500) {
+        try {
+          let errorDetails = JSON.parse(response.body);
+          // Kullanıcıya hata ayrıntılarını göster...
+        } catch (e) {
+          // JSON ayrıştırma başarısız oldu, alternatif hata işleme...
+        }
+      }
+    </pre>
+
+    <h3>Sunucu Hataları (500 Serisi)</h3>
+    <p>500'lü hatalar sunucu kaynaklıdır ve teknik sorunları işaret eder. Bu yanıtların formatı sabit olmadığı için, sunucu hatası durumunda detayları loglama ihtiyacınız olabilir:</p>
+    <pre>
+      // Sunucu hatası durumunda işlem
+      if (response.statusCode >= 500) {
+        // Log kaydı yapın. Formatın JSON olup olmadığını kontrol edin...
+        console.error('Sunucu hatası:', response.body);
+        try {
+          // Eğer yanıt JSON formatında ise ayrıştır...
+          let errorInfo = JSON.parse(response.body);
+          // İşlem yap...
+        } catch (e) {
+          // JSON ayrıştırma başarısız oldu, ham metin olarak loglama...
+        }
+      }
+    </pre>
+
+    <p>Yanıtları ayrıştırırken, her durum kodu için yanıtın formatının garantili olmadığını unutmayın. Yanıt içeriğini doğru bir şekilde ayrıştırmak ve beklenmeyen durumlara hazırlıklı olmak için her zaman yanıt tipini kontrol edin.</p>
+  </div>
+</div>
+
 
     </div>
 
