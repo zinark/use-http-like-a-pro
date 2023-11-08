@@ -1,1 +1,123 @@
-soon
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profesyoneller Gibi HTTP İstekleri Gönderin</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f7f7f7;
+  }
+  .book {
+    background: white;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  .title {
+    text-align: center;
+  }
+  .chapter {
+    margin-top: 20px;
+  }
+  .chapter-title {
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .chapter-content {
+    margin-top: 10px;
+  }
+  pre {
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+</style>
+</head>
+<body>
+
+<div class="book">
+  <div class="title">
+    <h1>PROFESYONELLER GİBİ</h1>
+    <h2>HTTP İSTEKLERİ GÖNDERİN</h2>
+    <p>sadece 2 saatte -- bilmeniz gereken her şey</p>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-title">1. Bölüm: cURL ile GET İsteği</div>
+    <div class="chapter-content">
+      <p>cURL ile GET isteği yapmak için aşağıdaki komutu kullanın:</p>
+      <pre>curl http://ornek.com/api/veri</pre>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-title">2. Bölüm: cURL ile POST İsteği</div>
+    <div class="chapter-content">
+      <p>cURL ile POST isteği yapmak için aşağıdaki komutu kullanın:</p>
+      <pre>curl -X POST -d "param1=deger1&param2=deger2" http://ornek.com/api/gonder</pre>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-title">3. Bölüm: Authorization Header Kullanımı</div>
+    <div class="chapter-content">
+      <p>HTTP isteğine Authorization header eklemek için aşağıdaki komutu kullanabilirsiniz:</p>
+      <pre>curl -H "Authorization: Bearer SENIN_TOKENIN" http://ornek.com/api/gizli</pre>
+    </div>
+  </div>
+
+  <div class="chapter">
+  <div class="chapter-title">4. Bölüm: İstekleri Nasıl Kataloglarız</div>
+  <div class="chapter-content">
+    <p>HTTP isteklerini kataloglamak, API ile çalışırken düzeni sağlamak için önemlidir. Her isteğin amacını, gönderilen verileri ve beklenen yanıtları açıkça belgelemek gerekir. Aşağıda, istekleri kataloglama yöntemlerinden bahsedeceğiz:</p>
+    
+    <ul>
+      <li><strong>İstek Metodları:</strong> GET, POST, PUT, DELETE gibi farklı HTTP metodlarını ve bunların ne zaman kullanılması gerektiğini belirtin.</li>
+      <li><strong>Endpoint Yapısı:</strong> Her bir API endpoint'i için bir standart yapınız olsun. Örneğin, '/users' kullanıcı listesi, '/users/{id}' belirli bir kullanıcıya erişim için kullanılabilir.</li>
+      <li><strong>Parametreler ve Gövde Verisi:</strong> İstek yaparken hangi parametrelerin ve gövde verilerinin gerekli olduğunu belirtin.</li>
+      <li><strong>Yanıt ve Durum Kodları:</strong> API'nizin döndürebileceği yanıt tiplerini ve HTTP durum kodlarını belirtin.</li>
+      <li><strong>Örnekler:</strong> Gerçek istek ve yanıtların örneklerini ekleyerek kullanıcıların ne bekleyeceğini görsel olarak gösterin.</li>
+      <li><strong>Doğrulama ve Hata Kontrolü:</strong> Gönderilen verilerin doğruluğunu kontrol etme ve olası hataları ele almanın yollarını açıklayın.</li>
+    </ul>
+
+    <p>İyi bir dokümantasyon ve açık kataloglama, API'nizin kullanımını kolaylaştırır ve hataları azaltır.</p>
+  </div>
+</div>
+
+
+
+
+  <div class="chapter">
+  <div class="chapter-title">5. Bölüm: HTTP Hata Kodları</div>
+  <div class="chapter-content">
+    <p>HTTP hata kodları, sunucunun gelen isteklere nasıl yanıt verdiğini tanımlar. Aşağıda yaygın HTTP hata kodları ve anlamları listelenmiştir:</p>
+    
+    <ul>
+      <li><strong>200 OK:</strong> İstek başarılı oldu ve yanıt istenilen içeriği içeriyor.</li>
+      <li><strong>400 Bad Request:</strong> İstek hatalı veya yanlış yapılandırılmış ve sunucu tarafından işlenemedi.</li>
+      <li><strong>401 Unauthorized:</strong> İstek yetkilendirme gerektiriyor ve ya yetkilendirme başarısız oldu ya da sağlanmadı.</li>
+      <li><strong>403 Forbidden:</strong> Sunucu isteği anladı ancak onu yerine getirmeyi reddediyor.</li>
+      <li><strong>500 Internal Server Error:</strong> Sunucu beklenmeyen bir durumla karşılaştı ve isteği yerine getiremedi.</li>
+      <li><strong>503 Service Unavailable:</strong> Sunucu geçici bir aşırı yük ya da bakım nedeniyle isteği işleme alamıyor.</li>
+      <li><strong>520 Unknown Error:</strong> Bu genellikle Cloudflare tarafından kullanılan özel bir hata kodudur ve sunucunun bir beklenmedik durumla karşılaştığını gösterir.</li>
+    </ul>
+
+    <p>Bu hata kodlarını anlamak ve uygun şekilde ele almak, kullanıcı deneyimini büyük ölçüde iyileştirebilir.</p>
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>
