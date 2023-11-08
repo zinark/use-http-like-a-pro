@@ -221,13 +221,16 @@
         </div>
 
         <div class="chapter">
-  <div class="chapter-title">8. Bölüm: HTTP Yanıtlarının Ayrıştırılması</div>
-  <div class="chapter-content">
-    <p>API'den alınan HTTP yanıtlarının doğru şekilde ayrıştırılması, hizmetin sağlıklı bir şekilde kullanılabilmesi için kritik önem taşır. Durum kodlarına göre yanıtların nasıl işleneceğini aşağıda bulabilirsiniz:</p>
-    
-    <h3>Başarılı Yanıtlar (200 Serisi)</h3>
-    <p>Başarılı yanıtlar genellikle JSON formatındadır. Yanıtın bu formatı doğrulayın ve uygun bir JSON parser kullanarak verileri işleyin:</p>
-    <pre>
+            <div class="chapter-title">8. Bölüm: HTTP Yanıtlarının Ayrıştırılması</div>
+            <div class="chapter-content">
+                <p>API'den alınan HTTP yanıtlarının doğru şekilde ayrıştırılması, hizmetin sağlıklı bir şekilde
+                    kullanılabilmesi için kritik önem taşır. Durum kodlarına göre yanıtların nasıl işleneceğini aşağıda
+                    bulabilirsiniz:</p>
+
+                <h3>Başarılı Yanıtlar (200 Serisi)</h3>
+                <p>Başarılı yanıtlar genellikle JSON formatındadır. Yanıtın bu formatı doğrulayın ve uygun bir JSON
+                    parser kullanarak verileri işleyin:</p>
+                <pre>
       // cURL komutu ile API'den veri talebi
       curl -X GET "http://ornek.com/api/veri" -H "accept: application/json"
       // Yanıtın başarılı olduğu durumda JSON ayrıştırma
@@ -236,10 +239,12 @@
         // İşlem yap...
       }
     </pre>
-    
-    <h3>Kullanıcı Hataları (400 Serisi)</h3>
-    <p>400'lü hatalar genellikle kullanıcı kaynaklı sorunları ifade eder ve hata detayları çoğu zaman JSON formatında sağlanır. Bu durumda, hata mesajını ayrıştırarak kullanıcıya net bir geri bildirim yapabilirsiniz:</p>
-    <pre>
+
+                <h3>Kullanıcı Hataları (400 Serisi)</h3>
+                <p>400'lü hatalar genellikle kullanıcı kaynaklı sorunları ifade eder ve hata detayları çoğu zaman JSON
+                    formatında sağlanır. Bu durumda, hata mesajını ayrıştırarak kullanıcıya net bir geri bildirim
+                    yapabilirsiniz:</p>
+                <pre>
       // Kullanıcı kaynaklı hata durumunda JSON ayrıştırma
       if (response.statusCode >= 400 && response.statusCode < 500) {
         try {
@@ -251,9 +256,10 @@
       }
     </pre>
 
-    <h3>Sunucu Hataları (500 Serisi)</h3>
-    <p>500'lü hatalar sunucu kaynaklıdır ve teknik sorunları işaret eder. Bu yanıtların formatı sabit olmadığı için, sunucu hatası durumunda detayları loglama ihtiyacınız olabilir:</p>
-    <pre>
+                <h3>Sunucu Hataları (500 Serisi)</h3>
+                <p>500'lü hatalar sunucu kaynaklıdır ve teknik sorunları işaret eder. Bu yanıtların formatı sabit
+                    olmadığı için, sunucu hatası durumunda detayları loglama ihtiyacınız olabilir:</p>
+                <pre>
       // Sunucu hatası durumunda işlem
       if (response.statusCode >= 500) {
         // Log kaydı yapın. Formatın JSON olup olmadığını kontrol edin...
@@ -268,9 +274,53 @@
       }
     </pre>
 
-    <p>Yanıtları ayrıştırırken, her durum kodu için yanıtın formatının garantili olmadığını unutmayın. Yanıt içeriğini doğru bir şekilde ayrıştırmak ve beklenmeyen durumlara hazırlıklı olmak için her zaman yanıt tipini kontrol edin.</p>
-  </div>
-</div>
+                <p>Yanıtları ayrıştırırken, her durum kodu için yanıtın formatının garantili olmadığını unutmayın. Yanıt
+                    içeriğini doğru bir şekilde ayrıştırmak ve beklenmeyen durumlara hazırlıklı olmak için her zaman
+                    yanıt tipini kontrol edin.</p>
+            </div>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">9. Bölüm: Atılan İsteklerin Otomasyonu</div>
+            <div class="chapter-content">
+                <p>Otomasyon, geliştirme süreçlerinde zamanı verimli kullanma, hata oranlarını düşürme ve maliyetleri
+                    azaltma açısından büyük önem taşır. SpecFlow, Postman ve unit test framework'leri gibi araçlarla API
+                    çağrıları otomatik hale getirilebilir. Bu bölümde, basit bir kullanıcı yönetim akışını otomatize
+                    etmek için cURL ile atılabilecek sıralı istekleri inceleyeceğiz.</p>
+
+                <h3>Otomasyon Senaryosu</h3>
+                <p>Aşağıda, bir kullanıcı yönetim sürecini otomatize etmek için gerekli adımları ve karşılık gelen cURL
+                    komutlarını bulacaksınız:</p>
+
+                <ol>
+                    <li><strong>Token Al:</strong> Kimlik doğrulama servisine istek atarak bir token alın.</li>
+                    <pre>curl -X POST -d "username=ornekKullanici&password=ornekSifre" http://ornek.com/api/auth</pre>
+
+                    <li><strong>Token ile Kullanıcı Listele:</strong> Alınan tokenı kullanarak kullanıcı listesi çekin.
+                    </li>
+                    <pre>curl -X GET http://ornek.com/api/users -H "Authorization: Bearer alinanToken"</pre>
+
+                    <li><strong>Kullanıcı Ekle:</strong> Yeni bir kullanıcı ekleyin.</li>
+                    <pre>curl -X POST -d "username=yeniKullanici&email=yeni@email.com" http://ornek.com/api/users -H "Authorization: Bearer alinanToken"</pre>
+
+                    <li><strong>Kullanıcı Değiştir:</strong> Mevcut bir kullanıcının bilgilerini güncelleyin.</li>
+                    <pre>curl -X PUT -d "username=guncelKullanici&email=guncel@email.com" http://ornek.com/api/users/1 -H "Authorization: Bearer alinanToken"</pre>
+
+                    <li><strong>Kullanıcı Sil:</strong> Bir kullanıcıyı sistemden kaldırın.</li>
+                    <pre>curl -X DELETE http://ornek.com/api/users/1 -H "Authorization: Bearer alinanToken"</pre>
+                </ol>
+
+                <p>Bu otomatik senaryo, bir dizi API çağrısının nasıl sıralanacağını ve birbirine bağlı işlemlerin nasıl
+                    gerçekleştirileceğini gösterir. Otomasyon, bu tür süreçleri hızlandırır, hataları azaltır ve sürekli
+                    entegrasyon/deployment (CI/CD) süreçlerindeki verimliliği artırır. Otomasyon aynı zamanda, manuel
+                    test süreçlerinin yerine geçerek, geliştiricilerin ve QA ekiplerinin zamanlarını daha karmaşık ve
+                    değerli görevlere ayırmalarını sağlar.</p>
+
+                <p>Özellikle zamanın kritik olduğu durumlarda, otomasyon, süreçleri hızlandırmak ve pazarda ürünü daha
+                    hızlı bir şekilde sunmak için değerlidir. Maliyetleri düşürme konusunda da, otomasyon, tekrar eden
+                    işlemleri minimize ederek ve hataları erkenden tespit ederek uzun vadede tasarruf sağlar.</p>
+            </div>
+        </div>
 
 
     </div>
