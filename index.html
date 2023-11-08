@@ -117,6 +117,41 @@
   </div>
 </div>
 
+
+
+<div class="chapter">
+  <div class="chapter-title">6. Bölüm: İsteklerde Zaman Aşımı ve Yeniden Deneme Stratejileri</div>
+  <div class="chapter-content">
+    <p>Uygulama yaparken ağ isteklerinin zamanında ve güvenilir şekilde tamamlanması önemlidir. Ağ hataları ve yavaş yanıtlar gibi durumlarda, istekleri yeniden denemek ve zaman aşımı sürelerini uygun şekilde ayarlamak gerekir. İşte bazı yönergeler:</p>
+    
+    <h3>Timeout Süresi</h3>
+    <p>Bir istek için belirlenen zaman aşımı süresi (timeout), sunucunun yanıt vermesi için beklenen maksimum süredir. Bu süre aşıldığında, istek başarısız sayılır. Örnek cURL kullanımı:</p>
+    <pre>curl -m 10 http://ornek.com/api/veri</pre>
+    <p>Burada '-m 10', cURL'un 10 saniye bekleyeceğini ve ardından zaman aşımına uğrayacağını belirtir.</p>
+    
+    <h3>Yeniden Deneme Sayısı</h3>
+    <p>Bir isteğin kaç defa yeniden denenmesi gerektiği, isteğin önemine ve beklenen yanıt süresine göre değişebilir. Örnek cURL kullanımı:</p>
+    <pre>curl --retry 5 http://ornek.com/api/veri</pre>
+    <p>Burada '--retry 5', cURL'un isteği 5 kez yeniden deneyeceğini gösterir.</p>
+    
+    <h3>Yeniden Deneme Kriterleri</h3>
+    <p>Yeniden deneme kararı alırken aşağıdaki durumlar göz önünde bulundurulmalıdır:</p>
+    <ul>
+      <li><strong>Geçici Hatalar:</strong> 503 Service Unavailable gibi geçici sunucu hatalarında.</li>
+      <li><strong>Ağ Hataları:</strong> Zaman aşımı veya ağ kesintisi gibi durumlarda.</li>
+      <li><strong>Başarısızlık Oranları:</strong> İsteklerin başarısızlık oranı yüksekse, daha az yeniden deneme yapılmalıdır.</li>
+    </ul>
+    
+    <h3>Örnek cURL Yeniden Deneme Kullanımı</h3>
+    <p>Yeniden deneme politikalarını cURL ile birleştirerek, belirli hatalar ve zaman aşımı durumlarında otomatik yeniden deneme sağlayabilirsiniz:</p>
+    <pre>curl --retry 5 --retry-delay 3 --retry-max-time 120 --retry-connrefused http://ornek.com/api/veri</pre>
+    <p>Bu komut, bağlantı reddedilirse bile, 3 saniyelik gecikmelerle toplamda 120 saniye içinde maksimum 5 kez yeniden deneme yapılmasını sağlar.</p>
+  </div>
+</div>
+
+
+
+  
 </div>
 
 </body>
